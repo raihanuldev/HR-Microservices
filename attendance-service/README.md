@@ -332,20 +332,6 @@ curl -X POST http://localhost:5003/attendance/check-out \
 curl -X GET http://localhost:5003/attendance/record \
   -H "Authorization: Bearer eyJhbGc..."
 ```
-
-## Testing Checklist
-
-- [ ] Check-in creates attendance record
-- [ ] Duplicate check-in returns 400
-- [ ] Check-out calculates duration correctly
-- [ ] Check-out without check-in returns 400
-- [ ] Employee verification fails for non-existent user
-- [ ] Database uniqueness constraint prevents duplicates
-- [ ] Invalid JWT returns 401
-- [ ] Timestamps are server-generated
-- [ ] Duration format is correct (X hours, Y minutes)
-- [ ] Retrieved records show complete history
-
 ## Edge Cases Handled
 
 1. **Multiple check-ins same day:** Blocked with "already checked in" message
