@@ -16,6 +16,11 @@ app.use("/api/employees",createProxyMiddleware({
     target:process.env.EMPLOYEESERVICESURL || "http://localhost:5002",
     changeOrigin:true,
 }))
+// This is root for attendance Service.
+app.use("/api/attendance-apis",createProxyMiddleware({
+    target:process.env.ATTENDANCESERVICURL || "http://localhost:5003",
+    changeOrigin:true,
+}))
 
 app.get("/server-health",async(req,res)=>{
     res.send({status:"Success",message:"Server is running"});
