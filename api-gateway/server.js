@@ -5,7 +5,6 @@ require("dotenv").config();
 
 const app = express();
 const port = 5000;
-
 app.use(logger);
 
 // This is root for auth Service.
