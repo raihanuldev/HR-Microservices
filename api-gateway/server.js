@@ -1,11 +1,15 @@
 const express = require('express');
 const {createProxyMiddleware} = require('http-proxy-middleware');
 const logger = require('./middileware/logger');
+const apiLimiter = require('./middileware/rateLimiter');
 require("dotenv").config();
 
 const app = express();
 const port = 5000;
+
+
 app.use(logger);
+app.use(apiLimiter); //rateLimiter
 
 // This is root for auth Service.
 app.use("/api/auth",createProxyMiddleware({
